@@ -7,9 +7,9 @@ sealed interface LoginState {
     data class Error(val message: String) : LoginState
 }
 
-sealed interface ProfileState {
-    object Idle : ProfileState
-    object Loading : ProfileState
-    data class Success(val rawProfileData: String) : ProfileState
-    data class Error(val message: String) : ProfileState
+sealed interface FeatureState {
+    object Idle : FeatureState
+    object Loading : FeatureState
+    data class Success(val data: String, val lastUpdated: Long? = null) : FeatureState
+    data class Error(val message: String) : FeatureState
 }
